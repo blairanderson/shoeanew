@@ -26,10 +26,11 @@ section: 404
     dsn: 'https://ef5b885726cf4f309c5ef8dc08b5d9df@o105755.ingest.sentry.io/5594818',
     release: "vdb-site@{{site.time | to_integer }}",
     integrations: [new Sentry.Integrations.BrowserTracing()],
-    // We recommend adjusting this value in production, or using tracesSampler
-    // for finer control
     tracesSampleRate: 1.0,
   });
-  Sentry.captureException("[404]: "+window.location.href)
+
+</script>
+<script !src="">
+  Sentry.captureException(`[404]: ${window.location.href}`);
 </script>
 {% endif %}
