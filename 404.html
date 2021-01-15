@@ -1,0 +1,29 @@
+---
+layout: 404
+permalink: /404.html
+section: 404
+---
+
+<h1>404</h1>
+
+<h3>Sorry, the requested page could not be found.</h3>
+
+<h5>We're looking into it. </h5>
+
+<p class="lead">Please visit the <a href="/">Home Page</a> instead.</p>
+
+
+{% if jekyll.environment == 'production' %}
+<script src="https://browser.sentry-cdn.com/4.4.2/bundle.min.js" crossorigin="anonymous"></script>
+<script !src="">
+  Sentry.init({
+    dsn: 'https://ef5b885726cf4f309c5ef8dc08b5d9df@o105755.ingest.sentry.io/5594818',
+    integrations: [
+      new Integrations.BrowserTracing(),
+    ],
+    tracesSampleRate: 1.0,
+  });
+
+  Sentry.captureException("[404]: "+window.location.href)
+</script>
+{% endif %}
