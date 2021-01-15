@@ -10,6 +10,7 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
+  background-color: $grey-bg-color;
   grid-template-columns:
     [full-start] minmax(1rem, 1fr)
     [main-start] minmax(0, 52rem) [main-end]
@@ -17,14 +18,22 @@ body {
 }
 
 // by default, make any new children of body to span the full track
-body > * {
-  grid-column: full;
-  padding: 2rem 1rem;
+body {
+  .container {
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 2rem 1rem;
+  }
 }
 
 // header, the first grid row
 // it is also a grid for the logo and nav
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   grid-column: full;
   display: grid;
   background-color: $brand-color;
@@ -46,13 +55,13 @@ header > h1 {
   a:visited {
     text-decoration: none;
     border: 0;
-    color: white;
+    color: rgb(25,25,25);
     @media screen and (min-width: $screen-sm-min) {
       padding: 1rem;
     }
   }
   a:hover {
-    color: white;
+    color: black;
   }
 }
 
@@ -72,18 +81,20 @@ header > nav {
       }
       a,
       a:visited {
-        color: white;
+        color: rgb(25,25,25);
         text-decoration: none;
         border: 0;
         @media screen and (min-width: $screen-sm-min) {
           padding: 1rem;
         }
         &[data-current="current page"] {
-          // you can add an active nav item style here
+          color: rgb(250,250,250);
+          background-color: black;
         }
       }
       a:hover {
-        color: white;
+        color: rgb(5,5,5);
+        background-color: white;
       }
     }
   }
@@ -92,26 +103,13 @@ header > nav {
 // our main content wrapper, the width scales with font size
 main {
   width: 100%;
-  max-width: 52rem;
-  margin-right: auto;
-  margin-left: auto;
-  grid-column: main;
+  grid-column: full;
   display: grid;
   padding-top: 8rem;
   padding-bottom: 8rem;
-  @media screen and (min-width: $screen-md-min) {
-    align-content: start;
-  }
 }
 
-// reset breaking fallbacks (e.g. widths) if CSS Grid is supported
-// float, inline-block, table properties are already ignored by CSS Grid
-@supports (display: grid) {
-  main {
-    width: auto;
-    max-width: none;
-  }
-}
+
 
 // blog posts list
 html[data-current="blog"] main > section {
@@ -135,35 +133,6 @@ nav[aria-label="Adjacent Posts"] {
       &:nth-child(2) {
         text-align: right;
       }
-    }
-  }
-}
-
-// contact form
-html[data-current="contact"] main > form {
-  display: grid;
-  label {
-    display: none;
-  }
-  input,
-  textarea {
-    width: 100%;
-    padding: 1rem;
-    margin-bottom: 2rem;
-  }
-  button {
-    width: 100%;
-  }
-}
-
-// reset CSS Grid fallbacks when they aren't required
-@supports (display: grid) {
-  html[data-current="contact"] main > form {
-    input,
-    textarea,
-    button {
-      width: auto;
-      max-width: none;
     }
   }
 }
