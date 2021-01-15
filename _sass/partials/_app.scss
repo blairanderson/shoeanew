@@ -8,13 +8,7 @@
 // the body element is our primary layout grid
 body {
   height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
   background-color: $grey-bg-color;
-  grid-template-columns:
-    [full-start] minmax(1rem, 1fr)
-    [main-start] minmax(0, 52rem) [main-end]
-    minmax(1rem, 1fr) [full-end];
 }
 
 // by default, make any new children of body to span the full track
@@ -34,8 +28,6 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  grid-column: full;
-  display: grid;
   background-color: $brand-color;
   padding: 2rem;
   @media screen and (min-width: $screen-sm-min) {
@@ -134,18 +126,5 @@ nav[aria-label="Adjacent Posts"] {
         text-align: right;
       }
     }
-  }
-}
-
-footer {
-  grid-column: full;
-  display: grid;
-  grid-template-columns:
-    [full-start] minmax(1rem, 1fr)
-    [main-start] minmax(0, 50rem) [main-end]
-    minmax(1rem, 1fr) [full-end];
-  background-color: $grey-bg-color;
-  > small {
-    grid-column: main;
   }
 }
