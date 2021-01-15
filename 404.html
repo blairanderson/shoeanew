@@ -15,22 +15,7 @@ section: 404
 </div>
 
 {% if jekyll.environment == 'production' %}
-<script
-  src="https://browser.sentry-cdn.com/5.30.0/bundle.tracing.min.js"
-  integrity="sha384-Wmp0Jx28tGfR086jrVwifMRcSWk8HQW4TWQ6XsNtI90pVj0dgkH9r2+pI3L2CLf6"
-  crossorigin="anonymous"
-></script>
-
 <script !src="">
-  Sentry.init({
-    dsn: 'https://ef5b885726cf4f309c5ef8dc08b5d9df@o105755.ingest.sentry.io/5594818',
-    release: "vdb-site@{{site.time | to_integer }}",
-    integrations: [new Sentry.Integrations.BrowserTracing()],
-    tracesSampleRate: 1.0,
-  });
-
-</script>
-<script !src="">
-  Sentry.captureException(`[404]: ${window.location.href}`);
+  throw new Error(`[404]: ${window.location.href}`)
 </script>
 {% endif %}
