@@ -1,8 +1,16 @@
-<header>
-    <h1>
-      <a href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
-    </h1>
-    <nav>
-      {% include navigation.html navigation=site.data.navigation %}
-    </nav>
+<header class="sticky-top p-3 px-md-4 bg-white border-bottom shadow-md">
+  <div class="container">
+    <div class="navbar navbar-light bg-white d-flex flex-column flex-md-row align-items-center">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <a href="/" class=" navbar-brand h5 my-0 me-md-auto text-black">VDB - VendorDB</a>
+      <nav class="my-2 my-md-0 me-md-3">
+
+        {% assign navurl = page.url | remove: 'index.html' %}
+        {% for item in site.data.navigation %}
+            <a href="{{ item.url }}" class="p-2 text-dark {% if item.url == navurl %}active{% endif %}" >{{ item.text }}</a>
+        {% endfor %}
+      </nav>
+      <a class="btn btn-outline-primary" href="https://app.thevdb.com/onboard">Login / Sign up</a>
+    </div>
+  </div>
 </header>
