@@ -1,0 +1,2 @@
+/accounts/* https://app.thevdb.com/accounts/:splat 301!
+/businesses/* https://app.thevdb.com/businesses/:splat 301!

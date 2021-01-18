@@ -56,9 +56,9 @@ kramdown:
 # Include in processing (e.g. Netlify directives)
 # Uncomment before use
 
-#include:
-#  - _redirects
-#  - _headers
+include:
+  - _redirects
+  - .netlify
 
 # Exclude from processing.
 # The following items will not be processed.
