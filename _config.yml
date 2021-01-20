@@ -43,7 +43,10 @@ defaults:
       image: "assets/img/uploads/screenshot-editor.jpg"
 
 collections:
-  - solutions
+  solutions:
+    output: true
+  products:
+    output: true
 
 # Build settings
 markdown: kramdown

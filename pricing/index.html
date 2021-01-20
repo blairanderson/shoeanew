@@ -1,0 +1,27 @@
+---
+layout: default
+title: PRICING - Amazon Automation Modules
+section: home
+---
+
+<div class="bg-dark">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-white py-5 mx-auto">
+        <h1 class="display-3">
+           Pay Per Use Automation.
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% for product in site.products %}
+<div class="container py-5">
+  <div class="row py-4">
+    <div class="col px-4 py-4">
+      <h1 class="display-2">{{product.name}}</h1>
+    </div>
+  </div>
+</div>
+{% endfor %}

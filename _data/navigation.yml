@@ -1,8 +1,10 @@
-# specify main menu items here
-
-- text: Product
-  url: /product
-- text: Solutions
-  url: /solutions
+# # specify main menu items here
+#
+- text: "Talk to our Founder"
+  url: "https://calendly.com/blanderson/30min/"
 - text: Pricing
-  url: /pricing
+  url: "#"
+# - text: Product
+#   url: "#"
+# - text: Solutions
+#   url: "#"
