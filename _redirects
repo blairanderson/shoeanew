@@ -1,3 +1,4 @@
+/blazer/* https://app.thevdb.com/blazer/:splat 301!
 /onboarding https://app.thevdb.com/onboarding 301!
 /accounts/* https://app.thevdb.com/accounts/:splat 301!
 /businesses/* https://app.thevdb.com/businesses/:splat 301!
