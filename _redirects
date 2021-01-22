@@ -4,4 +4,5 @@
 /businesses/* https://app.thevdb.com/businesses/:splat 301!
 /pages/* https://app.thevdb.com/pages/:splat 301!
 /onboard https://app.thevdb.com/onboard 301!
+/onboarding https://app.thevdb.com/onboard 301!
 /team_tasks https://app.thevdb.com/team_tasks 301!
