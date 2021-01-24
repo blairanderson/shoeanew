@@ -49,22 +49,4 @@ Our goal is to become your next employee for a fraction of the cost:
 
 ---
 
-![responsive icon](//microicon-clone.vercel.app/tv/99/076bff)
-
-### Time Sensitive Updates and Alerts
-
-Perfect Email Notifications **As-Needed**.  
-Not More. Not Less.
-
-![responsive icon](//microicon-clone.vercel.app/insert_chart/99/076bff)
-
-### Share Your Data and Insights
-
-Easily download your data & charts  
-Share with boss or business partner!
-
-![responsive icon](//microicon-clone.vercel.app/done_all/99/076bff)
-
-### Easy to use
-
-Created by leading Amazon Account Managers to get your work done right.
+{% include about-icons.html %}
