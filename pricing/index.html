@@ -17,18 +17,31 @@ section: home
 </div>
 
 {% for product in site.products %}
-<div class="container py-5" id="{{product.name | slugify }}">
-  <div class="row justify-content-center align-items-center">
-
-    <div class="col-6">
-      <h1 class="display-5">{{product.name}}</h1>
-      <p class="lead py-4 px-5">{{product.subtitle}}</p>
+{% assign slug = product.path | split: "." | first | split: "/" | last | slugify %}
+{% assign rows = site.product_rows | where:"product", slug  %}
+{% assign badges = product.badge | split: "," %}
+<div class="container py-5" id="{{slug}}">
+  <div class="row row-cols-1 row-cols-md-2 justify-content-center align-items-center">
+    <div class="col-8">
+      <h1 class="text-center">
+        {% if rows.size > 0 %}<a class="link-dark" href="{{product.url}}">{{product.title}}</a>{% else %}{{product.title}}{% endif %}
+      </h1>
+      <div class="py-4 px-5">
+        {% for badge in badges %}
+          {% capture badger %}badge/{{badge | slugify}}.html{% endcapture %}
+          {% include {{badger}} %}
+        {% endfor %}
+        {% if badges.size > 1 %}
+        {% include badge/agency.html %}
+        {% endif %}
+        <br>
+        <p class="lead">{{product.subtitle}}</p>
+      </div>
     </div>
-
     <div class="col-4">
       <div class="card mb-4 shadow-sm">
       <div class="card-header">
-        <h4 class="my-0 fw-normal">{{product.short_name}}</h4>
+        <h4 class="my-0 fw-normal">{{product.short_title}}</h4>
       </div>
       <div class="card-body">
         <h1 class="card-title pricing-card-title">{{product.pricing}}<small class="text-muted">{{product.pricing_modifier}}</small></h1>

@@ -1,6 +1,7 @@
 ---
-name: SellerCentral ERP System
-short_name: Sales, POs, Shipments, and More!
+title: SellerCentral ERP System
+badge: "SellerCentral"
+short_title: Sales, POs, Shipments, and More!
 subtitle: |
   Keep track of your SellerCentral business from Bottom to Top.
 

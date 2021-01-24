@@ -1,6 +1,7 @@
 ---
-name: VendorCentral Sales / POs / Chargebacks / Forecast Trackers
-short_name: VendorCentral Reporting
+title: SKU Sales & PO Line Item Cloud Storage
+badge: "VendorCentral"
+short_title: VendorCentral Reporting
 subtitle: "Keep track of your monthly sales and track POs down to the line-item."
 pricing: "$1" # see https://www.advigator.com/en/pages/pricing -->
 pricing_modifier: "/ ASIN / Month"

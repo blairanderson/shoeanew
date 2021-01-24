@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+{{content}}
+
+{% assign slug = page.path | split: "." | first | split: "/" | last | slugify %}
+<!--  -->
+{% assign rows = site.product_rows | where:"product", slug | sort: "order" %}
+<!--  -->
+{% for row in rows %}<!--  -->
+  {% include productrow.html image=row.image badge=row.badge header=row.header paragraph=row.paragraph %}<!--  -->
+{% endfor%}

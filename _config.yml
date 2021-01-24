@@ -45,7 +45,7 @@ defaults:
       path: "" # an empty string here means all files in the project
       type: "products" # previously `post` in Jekyll 2.2.
     values:
-      layout: "default"
+      layout: "product"
 
 collections:
   solutions:
