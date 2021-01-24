@@ -41,12 +41,19 @@ defaults:
       type: "solutions" # previously `post` in Jekyll 2.2.
     values:
       image: "assets/img/uploads/screenshot-editor.jpg"
+  - scope:
+      path: "" # an empty string here means all files in the project
+      type: "products" # previously `post` in Jekyll 2.2.
+    values:
+      layout: "default"
 
 collections:
   solutions:
-    output: true
+    output: false
   products:
     output: true
+  product_rows:
+    output: false
 
 # Build settings
 markdown: kramdown

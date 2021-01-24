@@ -10,3 +10,9 @@ features:
   - <small>(stop sending inventory and pay nothing)</small>
   - We can connect to your FTP, Database, ETC.
 ---
+
+
+{% assign rows = site.product_rows | where:"product","vendor-live-df-inventory" | sort: "order" %}
+{% for row in rows %}
+  {% include productrow.html image=row.image badge=row.badge header=row.header paragraph=row.paragraph %}
+{% endfor%}
