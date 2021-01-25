@@ -1,28 +1,96 @@
 <head>
   <meta charset="utf-8">
+  <meta property="og:locale" content="en_US" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.section == "home" %}{{ site.title }}{% else %}{{ page.title | default: site.title }}{% endif %}</title>
+  {% if page.sitemap == false %}
+  <meta name="robots" content="noindex, nofollow" />
+  {% endif %}
+
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+  <meta property="og:url" content="{{site.url}}{{ page.url }}" />
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS Feed"
+    href="{{site.url}}/sitemap.xml"
+  />
+
+  {% capture titleraw %}{% if page.title %}{{ page.title }} | {{site.title}}{% else %}{{site.title}}{% endif %}{%
+  endcapture %}
+  <!-- cleanup the title -->
+{% capture title %}{{titleraw | escape }}{% endcapture%}
+<!-- cleanup title -->
+  <title>{{title}}</title>
+  <meta property="og:title" content="{{ title  }}" />
+  <meta property="og:site_name" content="{{site.title | escape }}" />
+
+  {% capture description %}{% if page.meta-description %}{{
+  page.meta-description |  escape }}{% else %}{{page.description | escape}}{% endif %}{% endcapture
+  %}
+  <!-- capture description -->
+  <meta name="description" content="{{ description }}" />
+  <!-- capture description -->
+  <meta
+    property="og:description"
+    content="{{ description  }}"
+  />
+
+  {% assign author = site.data.authors[page.author] %}
+  {% if author %}
+  <meta name="author" content="{{ author.name }}" />
+  {% else %}
+  <meta name="twitter:creator" content="@blairanderson" />
+  <meta name="author" content="Blair Anderson" />
+  {% endif %}
+
+  <!-- CONTENT IMAGE -->
+  {% assign author = site.data.authors['blair_anderson'] %}
+  {% capture image_url %}{% if page.product_photo %}{{site.url}}{{page.product_photo}}{% endif %}{% endcapture %}
+  <!-- leave image url EMPTY -->
+  {% capture avatar_url %}{{ author.email | gravatar }}{% endcapture %}
+  <!-- AVATAR URL -->
+  {% capture author_name %}{{ author.name }}{% endcapture %}
+  <!-- DATE = DATE + READING TIME -->
+  {% capture date %}{{ page.date | date: "%b %-d, %Y" }} · {{page.content | reading_time }}{% endcapture %}
+  <!-- FINAL bb = bannerbear -->
+  {% capture bb %}{{image_url | bannerbear_url: avatar_url, author_name, date, page.title }}{% endcapture %}
+  <meta content="{{bb}}" property="og:image" />
+  <meta content="{{bb}}" name="twitter:image" />
+  <script>
+    setTimeout(function() {
+      var img = new Image();
+      img.src = "{{bb}}";
+    }, 1000);
+  </script>
+  <meta content="summary_large_image" name="twitter:card" />
+
+  {% if page.date %}
+  <meta property="og:article:published_time" content='{{ page.date | date: "%F" }}' />
+  {% endif %}
+
+
+  <!-- <link
+    rel="apple-touch-icon-precomposed"
+    sizes="60x60"
+    href="/img/favicons/logo-small.png"
+  />
+  <link
+    rel="apple-touch-icon-precomposed"
+    sizes="120x120"
+    href="/img/favicons/logo-medium.png"
+  />
+  <link
+    rel="apple-touch-icon-precomposed"
+    sizes="152x152"
+    href="/img/favicons/logo-large.png"
+  /> -->
+
+
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
-  {% if jekyll.environment == 'production' and site.analytics %}
-    {% include analytics.html %}
-  {% endif %}
-  <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
   {% if jekyll.environment == 'production' %}
-  <script
-    src="https://browser.sentry-cdn.com/5.30.0/bundle.tracing.min.js"
-    integrity="sha384-Wmp0Jx28tGfR086jrVwifMRcSWk8HQW4TWQ6XsNtI90pVj0dgkH9r2+pI3L2CLf6"
-    crossorigin="anonymous"
-  ></script>
-
-  <script !src="">
-    Sentry.init({
-      dsn: 'https://ef5b885726cf4f309c5ef8dc08b5d9df@o105755.ingest.sentry.io/5594818',
-      release: "vdb-site@{{site.time | to_integer }}",
-      integrations: [new Sentry.Integrations.BrowserTracing()],
-      tracesSampleRate: 1.0,
-    });
-  </script>
+    {% include analytics.html %}
   {% endif %}
 </head>

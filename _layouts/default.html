@@ -12,8 +12,27 @@ layout: compress
     {% include header.html %}
 
     <main>
+      {% assign author = site.data.authors['blair_anderson'] %}
+      {% capture image_url %}{% if page.product_photo %}{{site.url}}{{page.product_photo}}{% endif %}{% endcapture %}
+      <!-- leave image url EMPTY -->
+      {% capture avatar_url %}{{ author.email | gravatar }}{% endcapture %}
+      <!-- AVATAR URL -->
+      {% capture author_name %}{{ author.name }}{% endcapture %}
+      <!-- DATE = DATE + READING TIME -->
+      {% capture date %}{{ page.date | date: "%b %-d, %Y" }} · {{page.content | reading_time }}{% endcapture %}
+      <!-- FINAL bb = bannerbear -->
+      {% capture bb %}{{image_url | bannerbear_url: avatar_url, author_name, date, page.title }}{% endcapture %}
+      <!-- <code><pre>{{bb}}</pre></code> -->
+
+
 
       {{ content }}
+
+  <hr>
+  <div class="text-center">
+  <img src="{{bb}}" width=1200 height=630 alt="post header" class="img-fluid"/>  
+  </div>
+
 
     </main>
 
