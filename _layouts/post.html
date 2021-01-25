@@ -486,6 +486,20 @@ layout: default
     </div>
 
     <div class="col-md-4">
+      {% assign blair = site.data.authors['blair_anderson'] %}
+      {% capture image_url %}{% endcapture %}
+      <!-- leave image url EMPTY -->
+      {% capture avatar %}{{ blair.email | gravatar }}{% endcapture %}
+      <!-- AVATAR URL -->
+      {% capture author %}{{ blair.name }}{% endcapture %}
+      <!-- DATE = DATE + READING TIME -->
+      {% capture date %}{% if post.date %}{{ post.date | date: "%b %-d %Y" }} · {% endif %}{{content | reading_time }}{% endcapture %}
+      <!-- FINAL bb = bannerbear -->
+      {% capture bb %}{{image_url | bannerbear_tag: avatar, author, date, page.title }}{% endcapture %}
+      <meta content="{{bb}}" property="og:image" />
+      <meta content="{{bb}}" name="twitter:image" />
+      <meta content="summary_large_image" name="twitter:card" />
+      <img src="{{bb}}" width=1200 height=630 alt="Post Header" class="img-fluid"/>
       <div class="p-4 mb-3 bg-light rounded">
         <h4 class="font-italic"><a href="/about">About TheVDB</a></h4>
       </div>

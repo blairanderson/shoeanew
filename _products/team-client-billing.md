@@ -1,6 +1,7 @@
 ---
 title: Team / Client Billing Automation
 badge: "SellerCentral,VendorCentral"
+meta_photo: https://microicon-clone.vercel.app/insert_chart/00A8E1/99
 short_title: Agency Billing your Amazon Clients
 subtitle: Running an Agency is already difficult, getting paid by your clients should be easy. We help you calculate commissions and send PDF invoices. Can also integrate with Stripe to provide credit-card/ACH charges.
 pricing: "1%" # see https://www.advigator.com/en/pages/pricing -->

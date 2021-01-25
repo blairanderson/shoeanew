@@ -58,3 +58,20 @@ layout: default
     </div>
   </div>
 </div>
+
+<hr>
+
+<div class="text-center">
+  <!-- leave image url EMPTY -->
+  {% capture avatar %}https://app.thevdb.com/vdb.png{% endcapture %}
+  <!-- AVATAR URL -->
+  {% capture author %}Cost: {{page.pricing}}{% endcapture %}
+  <!-- DATE = DATE + READING TIME -->
+  {% capture date %}{{page.pricing_modifier}}{% endcapture %}
+  <!-- FINAL bb = bannerbear -->
+  {% capture productbb %}{{ page.meta_photo | bannerbear_tag: avatar, author, date, page.subtitle }}{% endcapture %}
+  <meta content="{{productbb}}" property="og:image" />
+  <meta content="{{productbb}}" name="twitter:image" />
+  <meta content="summary_large_image" name="twitter:card" />
+  <img src="{{productbb}}" width=1200 height=630 alt="{{page.subtitle}} banner" class="img-fluid"/>
+</div>

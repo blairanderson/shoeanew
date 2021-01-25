@@ -43,27 +43,6 @@
   <meta name="author" content="Blair Anderson" />
   {% endif %}
 
-  <!-- CONTENT IMAGE -->
-  {% assign author = site.data.authors['blair_anderson'] %}
-  {% capture image_url %}{% if page.product_photo %}{{site.url}}{{page.product_photo}}{% endif %}{% endcapture %}
-  <!-- leave image url EMPTY -->
-  {% capture avatar_url %}{{ author.email | gravatar }}{% endcapture %}
-  <!-- AVATAR URL -->
-  {% capture author_name %}{{ author.name }}{% endcapture %}
-  <!-- DATE = DATE + READING TIME -->
-  {% capture date %}{{ page.date | date: "%b %-d, %Y" }} · {{page.content | reading_time }}{% endcapture %}
-  <!-- FINAL bb = bannerbear -->
-  {% capture bb %}{{image_url | bannerbear_url: avatar_url, author_name, date, page.title }}{% endcapture %}
-  <meta content="{{bb}}" property="og:image" />
-  <meta content="{{bb}}" name="twitter:image" />
-  <script>
-    setTimeout(function() {
-      var img = new Image();
-      img.src = "{{bb}}";
-    }, 1000);
-  </script>
-  <meta content="summary_large_image" name="twitter:card" />
-
   {% if page.date %}
   <meta property="og:article:published_time" content='{{ page.date | date: "%F" }}' />
   {% endif %}
