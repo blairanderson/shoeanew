@@ -1,7 +1,7 @@
 ---
 title: SellerCentral ERP System
 badge: "SellerCentral"
-meta_photo: https://microicon-clone.vercel.app/developer_board/00A8E1/99
+meta_photo: https://www.thevdb.com/assets/svg/erp-000000-1000.svg
 short_title: Sales, POs, Shipments, and More!
 subtitle: |
   Keep track of your SellerCentral business from Bottom to Top.

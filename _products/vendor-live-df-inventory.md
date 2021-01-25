@@ -1,7 +1,7 @@
 ---
 title: Vendor Direct Fulfillment Inventory Sync
 badge: "VendorCentral"
-meta_photo: https://microicon-clone.vercel.app/sync/212529/99
+meta_photo: https://www.thevdb.com/assets/svg/sync-212529-1000.svg
 short_title: Vendor DF Inventory Uploads
 subtitle: "Forward your Inventory file VIA Email or FTP, VDB uploads to VendorCentral"
 pricing: "$0.25"

@@ -1,7 +1,7 @@
 ---
 title: SKU Sales & PO Line Item Cloud Storage
 badge: "VendorCentral"
-meta_photo: https://microicon-clone.vercel.app/insert_chart/00A8E1/99
+meta_photo: https://www.thevdb.com/assets/svg/insert-chart-00A8E1-1000.svg
 short_title: VendorCentral Reporting
 subtitle: "Keep track of your monthly sales and track POs down to the line-item."
 pricing: "$1" # see https://www.advigator.com/en/pages/pricing -->
