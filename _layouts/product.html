@@ -69,7 +69,7 @@ layout: default
   <!-- DATE = DATE + READING TIME -->
   {% capture date %}{{page.pricing_modifier}}{% endcapture %}
   <!-- FINAL bb = bannerbear -->
-  {% assign pt = page.subtitle | strip_newlines | strip_html %}
+  {% assign pt = page.subtitle | strip_newlines | strip_html | truncate: 30 %}
   {% capture productbb %}{{ page.meta_photo | bannerbear_tag: avatar, author, date, pt }}{% endcapture %}
   <meta content="{{productbb}}" property="og:image" />
   <meta content="{{productbb}}" name="twitter:image" />
