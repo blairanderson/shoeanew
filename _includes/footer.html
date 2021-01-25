@@ -1,18 +1,15 @@
 <div class="bg-light py-5">
   <div class="container">
     <div class="row">
-      <div class="col-1"></div>
-      <div class="col-12 col-md">
-        VendorDB
-        <div>
-          <img src="https://badges.skylight.io/typical/xrVdbWnDltMB.svg?token=-hJcdYnA-Qws125lzRaLLZ0GXihQ8-xDtevHBdJ6g8w"/>
-        </div>
-        <div>
-          <img src="https://badges.skylight.io/problem/xrVdbWnDltMB.svg?token=-hJcdYnA-Qws125lzRaLLZ0GXihQ8-xDtevHBdJ6g8w"/>
-        </div>
-
+      <div class="col-5">
+        <h5>Products</h5>
+        <ul class="list-unstyled text-small">
+          {% for product in site.products %}
+            <li><a class="text-muted" href="{{product.url}}">{{product.short_title}}</a></li>
+          {% endfor %}
+        </ul>
       </div>
-      <div class="col-6 col-md">
+      <div class="col">
         <h5>Learn More</h5>
         <ul class="list-unstyled text-small">
           <li><a class="text-muted"  href="/about/">About</a></li>
@@ -23,18 +20,23 @@
           <!--<li><a class="text-muted" href="#">Last time</a></li>-->
         </ul>
       </div>
-      <div class="col-6 col-md">
+      <div class="col">
         <h5>Resources</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="text-muted" target="_blank" href="/pages/terms-of-service/">Terms of Use</a></li>
-          <li><a class="text-muted" target="_blank" href="/pages/privacy-statement/">Privacy Policy</a></li>
-          <li><a class="text-muted" target="_blank" href="/pages/incident-management-policy/">Incident Reponse</a></li>
+          <li><a class="text-muted" target="_blank" href="https://app.thevdb.com/pages/terms-of-service/">Terms of Use</a></li>
+          <li><a class="text-muted" target="_blank" href="https://app.thevdb.com/pages/privacy-statement/">Privacy Policy</a></li>
+          <li><a class="text-muted" target="_blank" href="https://app.thevdb.com/pages/incident-management-policy/">Incident Reponse</a></li>
         </ul>
       </div>
     </div>
 
   </div>
-  <small class="d-block text-center text-muted">&copy; 2017-2021. All Rights Reserved.</small>
+  <small class="d-block text-center text-muted">VendorDB &copy; 2017-2021. All Rights Reserved.</small>
+  <br>
+  <div class="text-center">
+    <img src="https://badges.skylight.io/typical/xrVdbWnDltMB.svg?token=-hJcdYnA-Qws125lzRaLLZ0GXihQ8-xDtevHBdJ6g8w"/>
+    <img src="https://badges.skylight.io/problem/xrVdbWnDltMB.svg?token=-hJcdYnA-Qws125lzRaLLZ0GXihQ8-xDtevHBdJ6g8w"/>
+  </div>
   <div class="col-3 mx-auto text-center">
     <hr>
   </div>

@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div class="col-7 mx-auto">
+<div class="col-6 mx-auto">
   <h2>{{ page.title }}</h2>
 
   {% include page-intro.html %}
@@ -10,23 +10,20 @@ layout: default
   {{ content }}
 
   <section>
-
-    <h3>Posts</h3>
-
-    <ul>
+    <ul class="list-unstyled">
       {% for post in site.posts %}
       {% assign author = site.data.authors[post.author] %}
         <li>
-          <h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
-          <time datetime="{{ post.date }}">
+          <h3><a href="{{ post.url }}"><time datetime="{{ post.date }}">
             <small>
               <strong>{{ post.date | date_to_string }}</strong>
-              {% if author %}
-                by {{ author.name }}
-              {% endif %}
             </small>
-          </time>
-          {{ post.excerpt | strip_newlines | truncate: 180 }}
+          </time> &middot; {{ post.title }}</a></h3>
+
+          {% if author %}
+          <h4>by {{ author.name }}</h4>
+          {% endif %}
+          <p class="lead">{{ post.excerpt | strip_html | truncate: 180 }}</p>
         </li>
       {% endfor %}
     </ul>
