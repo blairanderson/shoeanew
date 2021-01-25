@@ -1,7 +1,6 @@
 ---
 layout: page
 title: About
-permalink: /about
 section: about
 intro_paragraph: |
   Hi there! I'm [Blair Anderson](https://www.andersonassociates.net/) and like you, I'm responsible for pushing Amazon **sales** _(and profits)_ up and to the right on <u style="color: orange;">Amazon</u>!
