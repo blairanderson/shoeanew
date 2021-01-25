@@ -2,12 +2,59 @@
 layout: default
 ---
 
-{{content}}
+<h1 class="pt-4 text-center">{{page.title}}</h1>
 
 {% assign slug = page.path | split: "." | first | split: "/" | last | slugify %}
 <!--  -->
 {% assign rows = site.product_rows | where:"product", slug | sort: "order" %}
 <!--  -->
+
+<div class="mx-auto col-6">
+  <h3 class="lead d-inline-block">Automation Made For: &nbsp; </h3>
+  {% assign badges = page.badge | split: "," %}
+  {% for badge in badges %}
+    {% capture badger %}badge/{{badge | slugify}}.html{% endcapture %}
+    <h3 class="lead d-inline-block">{% include {{badger}} %}</h3>
+  {% endfor %}
+  {% if badges.size > 1 %}
+  <h3 class="lead d-inline-block">{% include badge/agency.html %}</h3>
+  {% endif %}
+</div>
+
+<hr>
+<div style="position: fixed;bottom: 40px; right: 40px;">
+  <a class="btn btn-outline-success" href="#pricing">See Pricing</a>
+</div>
+
+{{content}}
+
+
 {% for row in rows %}<!--  -->
   {% include productrow.html image=row.image badge=row.badge header=row.header paragraph=row.paragraph %}<!--  -->
 {% endfor%}
+
+
+<div class="container py-5" id="pricing">
+  <div class="row row-cols-1 row-cols-md-2 justify-content-center align-items-center">
+    <div class="col-8">
+      <h3>{{page.subtitle}}</h3>
+    </div>
+    <div class="col-4">
+      <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 fw-normal">{{page.short_title}}</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">{{page.pricing}}<small class="text-muted">{{page.pricing_modifier}}</small></h1>
+
+        <ul class="mt-3 mb-4">
+          {% for feature in page.features %}
+            <li>{{feature}}</li>
+          {% endfor %}
+        </ul>
+        <a href="{{site.signup}}" class="w-100 btn btn-lg btn-primary">{{page.cta}}</a>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

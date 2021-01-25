@@ -5,27 +5,18 @@ section: home
 ---
 
 <div class="bg-dark">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 text-white py-5 mx-auto">
-        <h1 class="display-3">
-           Pay Per Use Automation.
-        </h1>
-      </div>
-    </div>
-  </div>
+  <h1 class="py-5 text-white  text-center">
+     <span class="display-3">Pay Per Use </span><small class="display-5"><em>(Not Anything More)</em></small>
+  </h1>
 </div>
 
 {% for product in site.products %}
 {% assign slug = product.path | split: "." | first | split: "/" | last | slugify %}
-{% assign rows = site.product_rows | where:"product", slug  %}
 {% assign badges = product.badge | split: "," %}
-<div class="container py-5" id="{{slug}}">
+<div class="container py-5" style="min-height: 70vh;" id="{{slug}}">
   <div class="row row-cols-1 row-cols-md-2 justify-content-center align-items-center">
     <div class="col-8">
-      <h1 class="text-center">
-        {% if rows.size > 0 %}<a class="link-dark" href="{{product.url}}">{{product.title}}</a>{% else %}{{product.title}}{% endif %}
-      </h1>
+      <h1 class="text-center">{{product.title}}</h1>
       <div class="py-4 px-5">
         {% for badge in badges %}
           {% capture badger %}badge/{{badge | slugify}}.html{% endcapture %}
@@ -35,8 +26,12 @@ section: home
         {% include badge/agency.html %}
         {% endif %}
         <br>
-        <p class="lead">{{product.subtitle}}</p>
+        <p class="lead">
+          {{product.subtitle}}
+          <a class="btn btn-sm btn-outline-secondary" href="{{product.url}}">Learn More about {{product.short_title}}</a>
+        </p>
       </div>
+
     </div>
     <div class="col-4">
       <div class="card mb-4 shadow-sm">
