@@ -4,6 +4,23 @@ layout: default
 
 <h1 class="pt-4 text-center">{{page.title}}</h1>
 
+<div class="text-center">
+  <!-- leave image url EMPTY -->
+  {% capture avatar %}https://app.thevdb.com/vdb.png{% endcapture %}
+  <!-- AVATAR URL -->
+  {% capture author %}Cost: {{page.pricing}}{% endcapture %}
+  <!-- DATE = DATE + READING TIME -->
+  {% capture date %}{{page.pricing_modifier}}{% endcapture %}
+  <!-- FINAL bb = bannerbear -->
+
+  {% capture productbb %}{{ page.meta_photo | bannerbear_tag: avatar, author, date, page.meta_title }}{% endcapture %}
+  <meta content="{{productbb}}" property="og:image" />
+  <meta content="{{productbb}}" name="twitter:image" />
+  <meta content="summary_large_image" name="twitter:card" />
+  <img src="{{productbb}}" width=1200 height=630 alt="{{page.subtitle}} banner" class="img-fluid"/>
+</div>
+
+
 {% assign slug = page.path | split: "." | first | split: "/" | last | slugify %}
 <!--  -->
 {% assign rows = site.product_rows | where:"product", slug | sort: "order" %}
@@ -57,22 +74,4 @@ layout: default
     </div>
     </div>
   </div>
-</div>
-
-<hr>
-
-<div class="text-center">
-  <!-- leave image url EMPTY -->
-  {% capture avatar %}https://app.thevdb.com/vdb.png{% endcapture %}
-  <!-- AVATAR URL -->
-  {% capture author %}Cost: {{page.pricing}}{% endcapture %}
-  <!-- DATE = DATE + READING TIME -->
-  {% capture date %}{{page.pricing_modifier}}{% endcapture %}
-  <!-- FINAL bb = bannerbear -->
-  
-  {% capture productbb %}{{ page.meta_photo | bannerbear_tag: avatar, author, date, page.meta_title }}{% endcapture %}
-  <meta content="{{productbb}}" property="og:image" />
-  <meta content="{{productbb}}" name="twitter:image" />
-  <meta content="summary_large_image" name="twitter:card" />
-  <img src="{{productbb}}" width=1200 height=630 alt="{{page.subtitle}} banner" class="img-fluid"/>
 </div>

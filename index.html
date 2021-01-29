@@ -33,12 +33,28 @@ section: home
   <!-- {% include targets.html %}   -->
 </div>
 
+<style media="screen">
+  .card-with-shadow {
+    transition: box-shadow;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+  }
+  .card-with-shadow:hover {
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+  }
+</style>
 {% for solution in site.solutions %}
-<div class="container py-5">
-  {% capture row %}{% cycle "even", "odd"%}{% endcapture %}{% capture rowname
-  %}solution{{row}}.html{% endcapture %}
-  <div class="row py-4">
-    {% include {{rowname}} %}
+
+<div class="container  py-5">
+  <div class="card card-with-shadow" style="border-color: transparent;">
+    <div class="card-body">
+      {% capture row %}{% cycle "even", "odd"%}{% endcapture %}
+      <!-- row -->
+      {% capture rowname %}solution{{row}}.html{% endcapture %}
+      <!-- rowname -->
+      <div class="row">
+      {% include {{rowname}} %}
+      </div>
+    </div>
   </div>
 </div>
 {% endfor %}
