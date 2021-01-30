@@ -1,13 +1,14 @@
-title: TheVDB
-email: blair@mail.thevdb.com
+title: >-
+  Shoe Cleaner Kit - ShoeAnew - all Natural, 8 Ounces, Brush and Cloth for Cleaning Sneakers, Tennis shoes, Canvas, Plastic, Mesh, Knit and More
+email: help@shoeanew.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Amazon Task Automation for Sellers, Vendors, and Agencies
+  Life gets messy! Don’t worry! Our shoe cleaner concentrate is ready to help clean up the aftermath and leave your shoes looking like they are fresh out of the box. Though other products may remove dirt and debris, ours goes beyond that and disinfects the surface, meaning your footwear will be as clean as can be, killing 99.9 percent of germs. The spray-top makes lathering a simple task, while the brush, cloth, and cleaner work in harmony to achieve cleaner, brighter and newer looking footwear! Just apply a small amount of our shoe cleaner concentrate, scrub grime away with our wood brush, and wipe clean with our microfiber cloth. Try it on your feet to eliminate foot odor or spray it in your shoes as a shoe odor eliminator! Our cleaner is completely safe for the environment, as well as non-toxic. This means you can clean your shoes without any harmful effects to you or your surroundings. Get one yourself or grab one for a friend. Our shoe cleaner concentrate is the perfect gift for your friends and family. Click the "Add to Cart" Button above and keep your shoes clean and smelling fresh today!
 baseurl: "" # the subpath of your site if applicable, e.g. /blog
-url: "https://www.thevdb.com" # the base hostname & protocol for your site, e.g. https://example.com
-signup: "https://app.thevdb.com/onboard"
+url: "https://www.shoeanew.com" # the base hostname & protocol for your site, e.g. https://example.com
+order_cta: https://www.amazon.com/Shoe-Cleaner-Kit-ShoeAnew-Microfiber/dp/B01F9FVUEA
 
 # Permalink format (/blog/ is ignored for pages)
-permalink: /blog/:title
+permalink: /:title
 
 # Enable section IDs in frontmatter, useful for identifying current page
 # (used as a hook for styling etc)
@@ -41,11 +42,6 @@ defaults:
       type: "solutions" # previously `post` in Jekyll 2.2.
     values:
       image: "assets/img/uploads/screenshot-editor.jpg"
-  - scope:
-      path: "" # an empty string here means all files in the project
-      type: "products" # previously `post` in Jekyll 2.2.
-    values:
-      layout: "product"
 
 collections:
   solutions:
